@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>세가방 쿠폰</title>
+</head>
+<body>
+    <span>쿠폰번호: {{ coupon.coupon_number }}<br></span>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">사용하기</button>
+    </form>
+
+</body>
+</html>

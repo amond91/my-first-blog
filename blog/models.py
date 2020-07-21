@@ -18,3 +18,21 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class BookStore(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+
+class Coupon(models.Model):
+    coupon_number = models.CharField(max_length=30, primary_key=True)
+    usage = models.ForeignKey(BookStore, on_delete=models.CASCADE, null=True, blank=True)
+    phone_number = models.CharField(max_length=30, null=True, blank=True)
+    use_date = models.DateTimeField(max_length=30, null=True, blank=True)
+    used = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.coupon_number
